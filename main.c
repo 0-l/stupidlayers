@@ -33,7 +33,6 @@ static int pre_handler(void* data, struct input_event* ev, char* k) {
   stupidlayers_t* sl = ck62->sl;
   switch (ev->code) {
     case KEY_CAPSLOCK: ev->code = KEY_ESC; break;
-    case KEY_ESC: ev->code = KEY_GRAVE; break;
   }
   if (!k[KEY_ESC]) { return 0; }
   switch (ev->code) {
