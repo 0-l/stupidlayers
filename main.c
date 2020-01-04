@@ -11,6 +11,7 @@
 
 #define STUPIDLAYERS_IMPLEMENTATION
 #include "stupidlayers.c"
+#include "media.c"
 
 /*
  * motospeed ck62 keybinds
@@ -43,6 +44,10 @@ static int pre_handler(void* data, struct input_event* ev, char* k) {
       stupidlayers_send(sl, ev);
       ev->code = KEY_GRAVE;
       break;
+    case KEY_U: adjust_backlight(5); break;
+    case KEY_I: adjust_backlight(-5); break;
+    case KEY_O: adjust_volume(2); break;
+    case KEY_P: adjust_volume(-2); break;
     case KEY_1: ev->code = KEY_F1; break;
     case KEY_2: ev->code = KEY_F2; break;
     case KEY_3: ev->code = KEY_F3; break;
