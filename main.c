@@ -44,10 +44,26 @@ static int pre_handler(void* data, struct input_event* ev, char* k) {
       stupidlayers_send(sl, ev);
       ev->code = KEY_GRAVE;
       break;
-    case KEY_U: adjust_backlight(5); break;
-    case KEY_I: adjust_backlight(-5); break;
-    case KEY_O: adjust_volume(2); break;
-    case KEY_P: adjust_volume(-2); break;
+    case KEY_U:
+      ev->value = 0;
+      adjust_backlight(5);
+      break;
+    case KEY_I:
+      ev->value = 0;
+      adjust_backlight(-5);
+      break;
+    case KEY_O:
+      ev->value = 0;
+      adjust_volume(2);
+      break;
+    case KEY_P:
+      ev->value = 0;
+      adjust_volume(-2);
+      break;
+    case KEY_W: ev->code = KEY_UP; break;
+    case KEY_A: ev->code = KEY_LEFT; break;
+    case KEY_S: ev->code = KEY_DOWN; break;
+    case KEY_D: ev->code = KEY_RIGHT; break;
     case KEY_1: ev->code = KEY_F1; break;
     case KEY_2: ev->code = KEY_F2; break;
     case KEY_3: ev->code = KEY_F3; break;
