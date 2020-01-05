@@ -5,7 +5,8 @@ void adjust_volume(int percentage) {
   char modifier = percentage > 0 ? '+' : '-';
   char command[50];
 
-  sprintf(command, "amixer -D pulse sset Master 2%c", modifier);
+  // pulseaudio's subprocess is ran as the logged user, not as root
+  sprintf(command, "sudo -H -u nexi pactl set-sink-volume 0 %c%d%%", modifier, abs(percentage));
 
   int ret = system(command);
 

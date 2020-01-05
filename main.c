@@ -53,11 +53,11 @@ static int pre_handler(void* data, struct input_event* ev, char* k) {
       break;
     case KEY_O:
       ev->value = 0;
-      adjust_volume(2);
+      adjust_volume(1);
       break;
     case KEY_P:
       ev->value = 0;
-      adjust_volume(-2);
+      adjust_volume(-1);
       break;
     case KEY_W: ev->code = KEY_UP; break;
     case KEY_A: ev->code = KEY_LEFT; break;
